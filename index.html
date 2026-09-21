@@ -10,6 +10,12 @@ nav{padding-bottom:calc(7px + env(safe-area-inset-bottom));backdrop-filter:blur(
 .timer{font-size:60px;font-weight:900;text-align:center;padding:12px;font-variant-numeric:tabular-nums}.runstatus{text-align:center;font-weight:800}.runstatus.on{color:#75eea2}
 .mapbox{height:160px;border:1px solid #30303b;border-radius:16px;background:#15151d;display:flex;align-items:center;justify-content:center;text-align:center;color:#92929d}
 .history-item{padding:12px 0;border-top:1px solid #29292f}.history-item:first-child{border-top:0}.tag{font-size:9px;font-weight:900;letter-spacing:.8px;color:#d8b6c5}
+
+/* FINN MODE v6.5 — true multi-tab horizontal scroll strip */
+nav{display:block;overflow:hidden}
+.tabbar-scroll{display:flex;width:100%;overflow-x:auto;overflow-y:hidden;gap:6px;padding:7px 8px env(safe-area-inset-bottom);scrollbar-width:none;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;scroll-snap-type:x proximity}
+.tabbar-scroll::-webkit-scrollbar{display:none}
+nav button{display:block;flex:0 0 auto;width:auto;min-width:72px;padding:10px 12px;font-size:12px;white-space:nowrap;scroll-snap-align:start}
 </style><style>
 html{font-size:17px}body{font-size:17px;line-height:1.48;-webkit-font-smoothing:antialiased}.app{padding-bottom:105px}
 .card{padding:18px;border-radius:20px}.title{font-size:25px;line-height:1.15}.section{font-size:19px}.muted{font-size:16px}.tip{font-size:14px;line-height:1.5}
