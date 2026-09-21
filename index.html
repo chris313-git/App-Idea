@@ -90,3 +90,6 @@ function renderV4(){v4rollover();document.getElementById("week").textContent="WE
 document.querySelector("nav").innerHTML='<div class="tabbar-scroll"><button data-tab="today">TODAY</button><button data-tab="run">RUN</button><button data-tab="body">BODY</button><button data-tab="food">FOOD</button><button data-tab="program">PROGRAM</button><button data-tab="history">HISTORY</button></div>';
 document.querySelectorAll("nav button").forEach(b=>b.onclick=()=>{location.hash=b.dataset.tab;renderV4()});
 window.removeEventListener("hashchange",renderV2);window.addEventListener("hashchange",renderV4);renderV4();
+
+if("serviceWorker"in navigator)navigator.serviceWorker.register("sw.js");
+</script></body></html>
