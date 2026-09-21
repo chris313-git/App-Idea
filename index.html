@@ -1,4 +1,4 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#09090b"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Finn Mode"><link rel="manifest" href="manifest.json"><title>Finn Mode</title><style>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#211024"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Finn Mode"><link rel="manifest" href="manifest.json"><title>FINN MODE — Athletic Cut</title><style>
 *{box-sizing:border-box}body{margin:0;background:#09090b;color:#f5f5f5;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif}.app{max-width:720px;margin:auto;padding:20px 15px 90px}header{display:flex;justify-content:space-between;align-items:end;margin-bottom:15px}h1{margin:0;font-size:30px}.muted{color:#999}.card{background:#16161b;border:1px solid #29292f;border-radius:18px;padding:16px;margin:10px 0}.hero{background:linear-gradient(135deg,#1c1c22,#101014)}.eyebrow{font-size:11px;letter-spacing:1px;color:#999;text-transform:uppercase}.title{font-size:22px;font-weight:800;margin:5px 0}.pill{background:#24242a;border-radius:99px;padding:6px 9px;font-size:11px;color:#bbb}.exercise{padding:14px 0;border-top:1px solid #29292f}.exercise:first-child{border-top:0}.row{display:flex;justify-content:space-between;gap:8px;align-items:center}.inputs{display:grid;grid-template-columns:1fr 1fr 1fr;gap:7px;margin-top:8px}.inputs input,.field input{width:100%;padding:10px;background:#0c0c0f;color:white;border:1px solid #303037;border-radius:9px}.inputs label,.field label{font-size:10px;color:#999}.btn{border:0;border-radius:11px;padding:11px 13px;background:#25252b;color:white}.primary{width:100%;background:#f5f5f5;color:#080808;font-weight:800}.complete{width:100%;margin-top:8px}.done{background:#28432b;color:#9be59c}.section{font-size:17px;font-weight:800;margin:18px 0 8px}nav{position:fixed;bottom:0;left:0;right:0;z-index:5;background:#0b0b0ddd;border-top:1px solid #29292f;display:grid;grid-template-columns:repeat(5,1fr);padding:7px 6px env(safe-area-inset-bottom)}nav button{background:none;color:#888;border:0;padding:8px 2px;font-size:11px}nav button.active{color:white;background:#222229;border-radius:9px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}.stat{background:#222229;padding:12px;border-radius:12px}.stat b{display:block;font-size:21px;margin-top:3px}.modal{position:fixed;inset:0;background:#000b;z-index:20;display:flex;align-items:end}.sheet{background:#16161b;width:100%;max-height:90vh;overflow:auto;border-radius:22px 22px 0 0;padding:18px}.hidden{display:none}.tip{font-size:12px;color:#aaa;line-height:1.5}
 
 /* FINN MODE v2 */
@@ -10,7 +10,41 @@ nav{padding-bottom:calc(7px + env(safe-area-inset-bottom));backdrop-filter:blur(
 .timer{font-size:60px;font-weight:900;text-align:center;padding:12px;font-variant-numeric:tabular-nums}.runstatus{text-align:center;font-weight:800}.runstatus.on{color:#75eea2}
 .mapbox{height:160px;border:1px solid #30303b;border-radius:16px;background:#15151d;display:flex;align-items:center;justify-content:center;text-align:center;color:#92929d}
 .history-item{padding:12px 0;border-top:1px solid #29292f}.history-item:first-child{border-top:0}.tag{font-size:9px;font-weight:900;letter-spacing:.8px;color:#d8b6c5}
-</style></head><body><div class="app"><header><div><h1>FINN MODE</h1><div class="muted">12-WEEK ATHLETIC CUT</div></div><span class="pill" id="week"></span></header><main id="view"></main></div><nav><button data-tab="today">TODAY</button><button data-tab="run">RUN</button><button data-tab="body">BODY</button><button data-tab="food">FOOD</button><button data-tab="program">PROGRAM</button><button data-tab="history">HISTORY</button></nav><div id="modal" class="modal hidden"></div><div id="toast" class="toast" style="display:none"></div><script>
+
+/* FINN MODE V3 — launch polish */
+html{font-size:17px;scroll-behavior:smooth}
+body{font-size:17px;line-height:1.48;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+.app{max-width:760px;padding:22px 16px calc(118px + env(safe-area-inset-bottom))}
+h1{font-size:32px;letter-spacing:-.7px}.muted{font-size:16px;color:#aaa5b0}
+.eyebrow,.tag{font-size:12px}.title{font-size:24px;line-height:1.16}.section{font-size:19px}
+.card{padding:18px;margin:12px 0;border-radius:20px}.tip{font-size:14px;line-height:1.55}
+.pill{font-size:12px;padding:7px 10px}.exercise{padding:17px 0}
+.inputs{gap:9px}.inputs input,.field input{font-size:17px;min-height:46px;padding:10px 12px}
+.btn{min-height:46px;padding:11px 15px;font-size:15px;font-weight:750;transition:transform .12s ease,filter .12s ease}
+.btn:active,.alink:active,nav button:active{transform:scale(.98);filter:brightness(1.12)}
+.primary{font-size:15px}.stat{padding:14px}.stat b{font-size:23px}
+nav{padding:8px 0 calc(8px + env(safe-area-inset-bottom));background:#0b0b0de8;border-top:1px solid #39313d}
+.tabbar-scroll{display:flex;gap:5px;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:none;padding:0 8px}
+.tabbar-scroll::-webkit-scrollbar{display:none}
+nav button{flex:0 0 auto;min-width:78px;min-height:46px;padding:9px 10px;font-size:12px;font-weight:800;letter-spacing:.15px;border-radius:12px}
+nav button.active{background:linear-gradient(180deg,#3a1e3b,#261828);color:#fff;box-shadow:inset 0 0 0 1px #5a3356}
+nav button[data-tab="today"]{min-width:72px}.timer{font-size:64px;letter-spacing:-2px}
+.run-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.run-metric{background:#202029;border:1px solid #333340;border-radius:15px;padding:14px}.run-metric .value{font-size:27px;font-weight:900;font-variant-numeric:tabular-nums}.run-metric .label{font-size:12px;color:#aaa}
+.run-controls{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:12px}
+.route{height:210px;position:relative;overflow:hidden;border-radius:17px;border:1px solid #343441;background:radial-gradient(circle at 30% 30%,#211a2b,#111119 70%)}
+.route svg{width:100%;height:100%}.route .empty{position:absolute;inset:0;display:grid;place-items:center;text-align:center;color:#8f8b98;padding:20px}
+.mode-row{display:flex;gap:8px;overflow:auto;padding-bottom:3px}.mode-row button{white-space:nowrap}
+.segment{padding:13px 0;border-top:1px solid #2c2b33}.segment:first-child{border-top:0}
+.photo-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.photo-card{position:relative;overflow:hidden;border-radius:16px;border:1px solid #393541;background:#111116;min-height:180px}.photo-card img{width:100%;height:250px;object-fit:cover;display:block}.photo-card .caption{padding:9px 10px;font-size:13px}.photo-card.start{border-color:#8e3f72}
+.photo-badge{position:absolute;top:9px;left:9px;background:#0c0c0dcc;border:1px solid #ffffff22;border-radius:999px;padding:5px 8px;font-size:10px;font-weight:900;z-index:1}
+.progress-note{background:#241824;border:1px solid #4b3046;border-radius:14px;padding:13px;font-size:14px}
+.food-progress{height:11px;background:#292730;border-radius:99px;overflow:hidden}.food-progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,#a94e87,#ef6d86);border-radius:inherit}
+.meal-list{display:grid;gap:9px}.meal{display:flex;justify-content:space-between;gap:12px;align-items:center;background:#202029;border:1px solid #30303a;border-radius:14px;padding:12px}.meal b{font-size:16px}.meal small{color:#aaa;font-size:13px}
+.kpi-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.kpi{background:#202029;border-radius:14px;padding:12px}.kpi b{display:block;font-size:20px}.kpi span{font-size:11px;color:#aaa}
+.empty-state{text-align:center;padding:24px 10px;color:#aaa}
+@media(max-width:390px){.app{padding-left:12px;padding-right:12px}.card{padding:16px}.title{font-size:22px}.timer{font-size:56px}.photo-grid{grid-template-columns:1fr}.inputs{grid-template-columns:1fr 1fr}.inputs label:last-child{grid-column:1/-1}.tabbar-scroll{gap:3px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important}}
+</style></head><body><div class="app"><header><div><h1>FINN MODE</h1><div class="muted">12-WEEK ATHLETIC CUT</div></div><span class="pill" id="week"></span></header><main id="view"></main></div><nav class="tabbar" aria-label="Primary"><div class="tabbar-scroll"><button data-tab="today">TODAY</button><button data-tab="run">RUN</button><button data-tab="body">BODY</button><button data-tab="food">FOOD</button><button data-tab="program">PROGRAM</button><button data-tab="history">HISTORY</button></div></nav><div id="modal" class="modal hidden"></div><div id="toast" class="toast" style="display:none"></div><script>
 const KEY="finnModeV1";const S=JSON.parse(localStorage.getItem(KEY)||"null")||{week:1,logs:{},body:[],custom:{}};const save=()=>localStorage.setItem(KEY,JSON.stringify(S));
 const E=(name,sets,reps,rpe,type="strength",note="")=>({name,sets,reps,rpe,type,note});
 const W={mon:{name:"Upper Power + Easy Mile",warm:["2 min easy row/bike","Scapular push-ups x10","Band pull-aparts x15","Wall slides x10","90/90 hip switches x6/side","Med-ball chest pass x3","Bench warm-up sets"],ex:[E("Plyometric push-up",3,"4–6",6,"power","Explosive; stop when speed drops"),E("Barbell bench press",4,"5–6","7.5–8.5"),E("Weighted pull-up",4,"5–8",8),E("Half-kneeling landmine press",3,"8/side",8),E("Chest-supported row",3,"8–10","8–9"),E("Hanging leg raise",3,"10–15","8–9","core","Posterior pelvic tilt; no swinging")],run:"1 mile easy, RPE 5–6"},tue:{name:"Lower Strength + Athleticism",warm:["2 min bike","Ankle rocks x10/side","Walking world's-greatest-stretch x5/side","Adductor rockbacks x8/side","Bodyweight Cossack squat x5/side","Glute bridge x10","Pogo hops x20","Squat warm-up sets"],ex:[E("Box jump",4,3,6,"power","Stick landing; step down"),E("Back squat",4,5,8),E("Romanian deadlift",3,"6–8",8),E("Bulgarian split squat",3,"8/leg",8),E("Nordic hamstring curl",3,"5–8",8,"strength","Assistance allowed"),E("Ab wheel rollout",3,"8–12","8–9","core","Ribs down; controlled")]},thu:{name:"Upper Athletic + Intervals",warm:["2 min jump rope/bike","Band external rotation x12","Banded lat pulldown x12","Thoracic rotations x6/side","Bear crawl x10 yd","Rotational med-ball throw x3/side","Light push press x5"],ex:[E("Medicine-ball rotational scoop toss",4,"4/side",6,"power","Max intent; full reset"),E("Push press",4,4,"7.5–8"),E("One-arm dumbbell row",4,"8/side",8),E("Incline dumbbell press",3,"8–10","8–9"),E("Cable lateral raise",3,"12–15",9,"hypertrophy"),E("Kneeling cable crunch",3,"10–15",9,"core","Curl the spine")],run:"W1–4: 6x200m hard/200m easy; W5–8: 6x300m hard/200m easy; W9–11: 5x400m ~5K pace; W12: 4x200m fast/relaxed"},fri:{name:"Lower Power + Posterior Chain",warm:["2 min incline treadmill","Lateral lunges x6/side","90/90 switches x6/side","Single-leg glute bridge x8/side","Tibialis raises x15","Pogo hops x20","Broad-jump practice x3","Deadlift warm-up sets"],ex:[E("Broad jump",4,3,6,"power","Stick landing; reset"),E("Trap-bar deadlift",4,"4–5",8),E("Front squat",3,6,8),E("Single-leg RDL",3,"8/side",8),E("Loaded Cossack squat",3,"6–8/side",8),E("Copenhagen plank",3,"20–30 sec/side",8,"core","Start short-lever if needed")]},sat:{name:"Easy / Steady Run",warm:["5 min brisk walk/easy jog","Ankle rocks x10/side","Leg swings x10/side","A-skips x2x15 yd","2 relaxed strides"],ex:[],run:"W1–4: 2–3 km easy; W5–8: 3–4 km; W9–11: 4–5 km; W12: 3 km easy or controlled 5K"}};
@@ -53,6 +87,209 @@ function renderV2(){document.getElementById("week").textContent="WEEK "+S.week;l
 const oldRender=render;const oldProgramV2=renderProgram;renderProgram=()=>oldProgramV2()+'<section class="card"><div class="section">Exercise library</div><button class="btn primary" onclick="showLibraryV2()">OPEN FULL EXERCISE LIBRARY</button></section>';render=renderV2;
 document.querySelectorAll("nav button").forEach(b=>b.onclick=()=>{location.hash=b.dataset.tab;renderV2()});
 window.addEventListener("hashchange",renderV2);
-renderV2();
+
+/* FINN MODE V3 application layer */
+const V3={photoMax:12};
+S.meta=S.meta||{};
+S.photos=Array.isArray(S.photos)?S.photos:[];
+S.meals=Array.isArray(S.meals)?S.meals:[];
+S.runs=Array.isArray(S.runs)?S.runs:[];
+S.events=Array.isArray(S.events)?S.events:[];
+
+function isoDateV3(d=new Date()){return new Date(d).toISOString().slice(0,10)}
+function localDateV3(){const d=new Date();return new Date(d.getTime()-d.getTimezoneOffset()*60000).toISOString().slice(0,10)}
+function escV3(v){return String(v??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]))}
+function toast3(t){const x=document.getElementById("toast");if(!x)return;x.textContent=t;x.style.display="block";clearTimeout(window.__toast3);window.__toast3=setTimeout(()=>x.style.display="none",2200)}
+function save3(){localStorage.setItem(KEY,JSON.stringify(S))}
+function dateLabel3(d){return new Date(d+"T12:00:00").toLocaleDateString(undefined,{weekday:"short",month:"short",day:"numeric"})}
+function lastWeekStart3(){const d=new Date();const day=d.getDay();d.setDate(d.getDate()-day);return isoDateV3(d)}
+function targetFor3(type){return type==="cal"?2400:type==="pro"?200:type==="carb"?270:type==="fat"?60:type==="fiber"?40:96}
+function todayFood3(){return S.food[localDateV3()]||null}
+
+function rollover3(){
+  const today=localDateV3();
+  if(S.meta.lastOpenDate===today)return;
+  const previous=S.meta.lastOpenDate||null;
+  if(previous){
+    const dayLogs=Object.entries(S.logs||{}).filter(([k,v])=>k.startsWith(previous+"|")&&v&&v.done).length;
+    const food=S.food[previous]||null;
+    const runs=(S.runs||[]).filter(r=>r.date===previous);
+    const body=(S.body||[]).filter(x=>isoDateV3(x.date)===previous);
+    S.events.push({time:new Date().toISOString(),type:"day_rollover",data:{
+      date:previous,workoutsCompleted:dayLogs,food:food?{cal:food.cal,pro:food.pro,carb:food.carb,fat:food.fat,fiber:food.fiber,water:food.water}:null,
+      runs:runs.map(r=>({distanceKm:r.distanceKm,seconds:r.seconds})),weight:body.at(-1)?.weight||null
+    }});
+  }
+  S.meta.lastOpenDate=today;
+  S.events.push({time:new Date().toISOString(),type:"day_start",data:{date:today,scheduledDay:names[todayDay3()]||todayDay3()}});
+  save3();
+}
+function todayDay3(){return ["sun","mon","tue","wed","thu","fri","sat"][new Date().getDay()]}
+
+function imgToData3(file){
+  return new Promise((resolve,reject)=>{
+    if(!file||!file.type.startsWith("image/"))return reject(new Error("Please choose an image."));
+    const r=new FileReader();
+    r.onerror=()=>reject(new Error("Could not read image."));
+    r.onload=()=>{
+      const im=new Image();
+      im.onload=()=>{
+        const max=1100,scale=Math.min(1,max/Math.max(im.naturalWidth,im.naturalHeight));
+        const w=Math.max(1,Math.round(im.naturalWidth*scale)),h=Math.max(1,Math.round(im.naturalHeight*scale));
+        const can=document.createElement("canvas");can.width=w;can.height=h;const ctx=can.getContext("2d");
+        ctx.drawImage(im,0,0,w,h);resolve(can.toDataURL("image/jpeg",.72));
+      };
+      im.onerror=()=>reject(new Error("Could not decode image."));im.src=r.result;
+    };r.readAsDataURL(file);
+  });
+}
+async function addPhoto3(file,type){
+  try{
+    const data=await imgToData3(file);
+    if(type==="start"){
+      S.photos=S.photos.filter(p=>p.type!=="start");
+      S.photos.unshift({id:Date.now(),type:"start",date:localDateV3(),data});
+    }else{
+      const saturday=new Date().getDay()===6;
+      if(!saturday){toast3("Weekly progress photos are scheduled for Saturday.");return}
+      const week=localDateV3();
+      S.photos=S.photos.filter(p=>!(p.type==="weekly"&&p.date===week));
+      S.photos.unshift({id:Date.now(),type:"weekly",date:week,data});
+    }
+    S.photos=S.photos.slice(0,V3.photoMax);
+    S.events.push({time:new Date().toISOString(),type:"photo",data:{photoType:type,date:localDateV3()}});
+    save3();toast3(type==="start"?"Starting photo saved":"Saturday progress photo saved");renderV3();
+  }catch(e){toast3(e.message||"Photo failed")}
+}
+function photoInput3(type){
+  const i=document.createElement("input");i.type="file";i.accept="image/*";i.setAttribute("capture","environment");
+  i.onchange=()=>i.files?.[0]&&addPhoto3(i.files[0],type);i.click();
+}
+function deletePhoto3(id){S.photos=S.photos.filter(p=>p.id!==id);save3();renderV3()}
+
+function renderBody3(){
+  const n=Math.min(7,S.body.length),avg=n?S.body.slice(-n).reduce((a,x)=>a+Number(x.weight||0),0)/n:0;
+  const start=S.photos.find(p=>p.type==="start"), weekly=S.photos.filter(p=>p.type==="weekly");
+  const latest=weekly[0], isSat=new Date().getDay()===6;
+  return '<section class="card hero"><div class="eyebrow">BODY + PROGRESS</div><div class="title">'+(avg?avg.toFixed(1)+' lb':'Add your first weigh-in')+'</div><p class="muted">'+(avg?'7-day average • goal 195 lb':'Your baseline starts here.')+'</p></section>'+
+  '<section class="card"><div class="section">Daily weight</div><div class="field"><label>WEIGHT</label><input id="bw3" type="number" step=".1" placeholder="215"></div><button class="btn primary" style="margin-top:10px" onclick="saveBody3()">SAVE WEIGHT</button><p class="tip" style="margin-top:10px">Weight is logged daily. No waist measurement required.</p></section>'+
+  '<section class="card"><div class="section">Visual progress</div><div class="progress-note">'+(isSat?'Saturday check-in: take your weekly photo today.':'Weekly photos are intentionally scheduled for Saturday.')+'</div>'+
+  '<div class="run-controls"><button class="btn primary" onclick="photoInput3(\'start\')">'+(start?'REPLACE STARTING PHOTO':'ADD STARTING PHOTO')+'</button><button class="btn" '+(isSat?'':'disabled')+' onclick="photoInput3(\'weekly\')">'+(latest&&latest.date===localDateV3()?'REPLACE TODAY\'S PHOTO':'ADD SATURDAY PHOTO')+'</button></div></section>'+
+  '<section class="card"><div class="section">Progress gallery</div>'+
+  (start?'<div class="photo-grid"><div class="photo-card start"><span class="photo-badge">START</span><img src="'+start.data+'" alt="Starting progress photo"><div class="caption">'+dateLabel3(start.date)+' <button class="btn" onclick="deletePhoto3('+start.id+')">DELETE</button></div></div>'+
+  (weekly.slice(0,5).map(p=>'<div class="photo-card"><span class="photo-badge">'+dateLabel3(p.date)+'</span><img src="'+p.data+'" alt="Weekly progress photo"><div class="caption">Weekly check-in <button class="btn" onclick="deletePhoto3('+p.id+')">DELETE</button></div></div>').join("")||"")+'</div>'
+  :(weekly.length?'<div class="photo-grid">'+weekly.slice(0,6).map(p=>'<div class="photo-card"><span class="photo-badge">'+dateLabel3(p.date)+'</span><img src="'+p.data+'" alt="Weekly progress photo"><div class="caption">Weekly check-in <button class="btn" onclick="deletePhoto3('+p.id+')">DELETE</button></div></div>').join("")+'</div>':'<div class="empty-state">Your starting photo and Saturday photos will live here.</div>')+
+  '</section>';
+}
+function saveBody3(){const w=Number(document.getElementById("bw3")?.value);if(!w||w<80||w>700){toast3("Enter a valid body weight.");return}const d=localDateV3();S.body=S.body||[];const existing=S.body.find(x=>isoDateV3(x.date)===d);if(existing)existing.weight=w;else S.body.push({date:new Date().toISOString(),weight:w});S.events.push({time:new Date().toISOString(),type:"body",data:{date:d,weight:w}});save3();toast3("Weight saved");renderV3()}
+
+function mealDelete3(id){S.meals=S.meals.filter(m=>m.id!==id);rebuildFoodDay3();save3();renderV3()}
+function addMeal3(){const name=document.getElementById("mealName3")?.value.trim(),cal=Number(document.getElementById("mealCal3")?.value||0),pro=Number(document.getElementById("mealPro3")?.value||0),carb=Number(document.getElementById("mealCarb3")?.value||0),fat=Number(document.getElementById("mealFat3")?.value||0);
+  if(!name){toast3("Give the meal a name.");return}
+  S.meals.push({id:Date.now(),date:localDateV3(),name,cal,pro,carb,fat});rebuildFoodDay3();save3();renderV3()
+}
+function rebuildFoodDay3(){
+  const d=localDateV3(),ms=S.meals.filter(m=>m.date===d),old=S.food[d]||{};
+  const x={date:d,cal:ms.reduce((a,m)=>a+m.cal,0),pro:ms.reduce((a,m)=>a+m.pro,0),carb:ms.reduce((a,m)=>a+m.carb,0),fat:ms.reduce((a,m)=>a+m.fat,0),fiber:Number(old.fiber||0),water:Number(old.water||0),note:old.note||""};
+  S.food[d]=x;
+}
+function saveFoodExtras3(){const d=localDateV3(),x=S.food[d]||{date:d};x.fiber=Number(document.getElementById("fiber3")?.value||0);x.water=Number(document.getElementById("water3")?.value||0);x.note=document.getElementById("foodNote3")?.value||"";S.food[d]=x;S.events.push({time:new Date().toISOString(),type:"food",data:{...x}});save3();toast3("Nutrition check-in saved");renderV3()}
+function bar3(v,t){return Math.min(100,Math.max(0,Math.round((Number(v)||0)/t*100)))}
+function renderFood3(){
+  const d=localDateV3(),f=S.food[d]||{cal:0,pro:0,carb:0,fat:0,fiber:0,water:0,note:""},ms=S.meals.filter(m=>m.date===d);
+  const metric=(label,v,target)=>'<div class="segment"><div class="row"><b>'+label+'</b><span>'+v+' / '+target+'</span></div><div class="food-progress"><i style="width:'+bar3(v,target)+'%"></i></div></div>';
+  return '<section class="card hero"><div class="eyebrow">FOOD MODE • '+dateLabel3(d)+'</div><div class="title">'+f.cal.toLocaleString()+' kcal</div><p class="muted">'+f.pro+' g protein • '+f.carb+' g carbs • '+f.fat+' g fat</p>'+
+  metric("Calories",f.cal.toLocaleString(),"2,400")+
+  metric("Protein",f.pro+" g","200 g")+'</section>'+
+  '<section class="card"><div class="section">Log a meal</div><div class="field"><label>MEAL</label><input id="mealName3" placeholder="Breakfast, lunch, post-workout…"></div><div class="inputs" style="margin-top:9px"><label>CAL<input id="mealCal3" type="number"></label><label>PRO G<input id="mealPro3" type="number"></label><label>CARB G<input id="mealCarb3" type="number"></label></div><div class="field" style="margin-top:9px"><label>FAT G</label><input id="mealFat3" type="number"></div><button class="btn primary" style="margin-top:10px" onclick="addMeal3()">ADD MEAL</button></section>'+
+  '<section class="card"><div class="section">Today\'s meals</div>'+(ms.length?'<div class="meal-list">'+ms.map(m=>'<div class="meal"><div><b>'+escV3(m.name)+'</b><small>'+m.cal+' kcal • '+m.pro+'p / '+m.carb+'c / '+m.fat+'f</small></div><button class="btn" onclick="mealDelete3('+m.id+')">REMOVE</button></div>').join("")+'</div>':'<div class="empty-state">No meals logged yet. Add them as you eat.</div>')+'</section>'+
+  '<section class="card"><div class="section">Daily extras</div><div class="inputs"><label>FIBER G<input id="fiber3" type="number" value="'+(f.fiber||"")+'"></label><label>WATER OZ<input id="water3" type="number" value="'+(f.water||"")+'"></label><label>NOTE<input id="foodNote3" value="'+escV3(f.note||"")+'" placeholder="Optional"></label></div><button class="btn primary" style="margin-top:10px" onclick="saveFoodExtras3()">SAVE CHECK-IN</button></section>'+
+  '<section class="card"><div class="section">Target</div><p>~2,400 kcal • 200 g protein • 260–280 g carbs • 55–65 g fat • 35–45+ g fiber</p><a class="alink" href="https://www.myfitnesspal.com/" target="_blank" rel="noopener">OPEN MYFITNESSPAL ↗</a></section>';
+}
+
+let run3={active:false,paused:false,start:0,elapsed:0,watch:null,points:[],meters:0,accuracy:null,tick:null,mode:"free",lastPoint:null};
+function hav3(a,b){const R=6371000,la=(a.lat-b.lat)*Math.PI/180,lo=(a.lon-b.lon)*Math.PI/180,x=Math.sin(la/2)**2+Math.cos(a.lat*Math.PI/180)*Math.cos(b.lat*Math.PI/180)*Math.sin(lo/2)**2;return 2*R*Math.asin(Math.sqrt(x))}
+function fmt3(sec){sec=Math.max(0,Math.floor(sec));return [Math.floor(sec/3600),Math.floor(sec/60)%60,sec%60].map((v,i)=>i?String(v).padStart(2,"0"):String(v)).join(":")}
+function pace3(){if(run3.meters<100||run3.elapsed<10)return "--:--";const secPerKm=run3.elapsed/(run3.meters/1000),m=Math.floor(secPerKm/60),s=Math.round(secPerKm%60);return m+":"+String(s).padStart(2,"0")}
+function gps3(p){if(!run3.active||run3.paused)return;const q={lat:p.coords.latitude,lon:p.coords.longitude,t:Date.now()};run3.accuracy=p.coords.accuracy;const prev=run3.points.at(-1);if(prev){const d=hav3(prev,q);if(d>2&&d<75)run3.meters+=d}run3.points.push(q);updateRun3()}
+function beginWatch3(){if(!navigator.geolocation)return toast3("GPS is unavailable in this browser.");navigator.geolocation.getCurrentPosition(p=>gps3(p),()=>toast3("Allow Location access for GPS."),{enableHighAccuracy:true,maximumAge:0,timeout:10000});run3.watch=navigator.geolocation.watchPosition(gps3,()=>toast3("GPS signal weak — keep FINN MODE open."),{enableHighAccuracy:true,maximumAge:1500,timeout:10000})}
+function startRun3(){if(run3.active&&!run3.paused)return;if(!navigator.geolocation){toast3("GPS is unavailable.");return}
+  if(run3.paused){run3.paused=false;run3.start=Date.now()-run3.elapsed*1000;beginWatch3();toast3("Run resumed");return}
+  run3={...run3,active:true,paused:false,start:Date.now(),elapsed:0,watch:null,points:[],meters:0,accuracy:null,tick:null,lastPoint:null};beginWatch3();run3.tick=setInterval(()=>{if(run3.active&&!run3.paused){run3.elapsed=Math.floor((Date.now()-run3.start)/1000);updateRun3()}},500);updateRun3();toast3("GPS run started")}
+function pauseRun3(){if(!run3.active||run3.paused)return;run3.elapsed=Math.floor((Date.now()-run3.start)/1000);run3.paused=true;if(run3.watch!==null)navigator.geolocation.clearWatch(run3.watch);run3.watch=null;toast3("Run paused");updateRun3()}
+function finishRun3(){if(!run3.active)return;run3.elapsed=run3.paused?run3.elapsed:Math.floor((Date.now()-run3.start)/1000);if(run3.watch!==null)navigator.geolocation.clearWatch(run3.watch);clearInterval(run3.tick);const entry={id:Date.now(),date:localDateV3(),started:new Date(run3.start).toISOString(),seconds:run3.elapsed,distanceKm:run3.meters/1000,points:run3.points,mode:run3.mode};S.runs.push(entry);S.events.push({time:new Date().toISOString(),type:"run",data:{id:entry.id,date:entry.date,seconds:entry.seconds,distanceKm:entry.distanceKm,mode:entry.mode}});save3();run3={active:false,paused:false,start:0,elapsed:0,watch:null,points:[],meters:0,accuracy:null,tick:null,mode:run3.mode,lastPoint:null};toast3("Run saved to History");renderV3()}
+function resetRun3(){if(run3.watch!==null)navigator.geolocation.clearWatch(run3.watch);clearInterval(run3.tick);run3={active:false,paused:false,start:0,elapsed:0,watch:null,points:[],meters:0,accuracy:null,tick:null,mode:"free",lastPoint:null};renderV3()}
+function setRunMode3(m){if(run3.active){toast3("Finish or reset the current run first.");return}run3.mode=m;renderV3()}
+function route3(){
+  if(run3.points.length<2)return '<div class="empty">Start moving and your local GPS route will appear here.</div>';
+  const pts=run3.points, minX=Math.min(...pts.map(p=>p.lon)),maxX=Math.max(...pts.map(p=>p.lon)),minY=Math.min(...pts.map(p=>p.lat)),maxY=Math.max(...pts.map(p=>p.lat)),dx=Math.max(maxX-minX,1e-7),dy=Math.max(maxY-minY,1e-7);
+  const xy=p=>[12+(p.lon-minX)/dx*76,88-(p.lat-minY)/dy*76];
+  const poly=pts.map(p=>xy(p).join(",")).join(" ");
+  return '<svg viewBox="0 0 100 100" preserveAspectRatio="none"><polyline points="'+poly+'" fill="none" stroke="#d9689b" stroke-width="1.7" vector-effect="non-scaling-stroke" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+}
+function updateRun3(){
+  const t=document.getElementById("runTime3");if(!t)return;
+  const elapsed=run3.active&&!run3.paused?Math.floor((Date.now()-run3.start)/1000):run3.elapsed;
+  if(run3.active&&!run3.paused)run3.elapsed=elapsed;
+  t.textContent=fmt3(elapsed);
+  const d=document.getElementById("runDist3"),p=document.getElementById("runPace3"),a=document.getElementById("runAcc3"),s=document.getElementById("runStatus3"),route=document.getElementById("route3");
+  if(d)d.textContent=(run3.meters/1000).toFixed(2)+" km";if(p)p.textContent=pace3();if(a)a.textContent=run3.accuracy?Math.round(run3.accuracy)+" m":"--";
+  if(s){s.textContent=run3.active?(run3.paused?"PAUSED":"LIVE GPS"):"READY";s.className="runstatus "+(run3.active&&!run3.paused?"on":"")}
+  if(route)route.innerHTML=route3();
+  const main=document.getElementById("runMain3");if(main)main.textContent=run3.active?(run3.paused?"RESUME RUN":"PAUSE RUN"):"START RUN";
+}
+function renderRun3(){
+  const mode=run3.mode, modeText=mode==="easy"?"Easy / aerobic":mode==="interval"?"Intervals / quality":"Free run";
+  return '<section class="card hero"><div class="eyebrow">RUN MODE</div><div class="title">'+modeText+'</div><p class="muted">Elapsed time, GPS distance, live pace, accuracy and a local route trace. Keep FINN MODE open while running; a static PWA cannot promise native background GPS behavior.</p></section>'+
+  '<section class="card"><div class="mode-row"><button class="btn '+(mode==="free"?"primary":"")+'" onclick="setRunMode3(\'free\')">FREE RUN</button><button class="btn '+(mode==="easy"?"primary":"")+'" onclick="setRunMode3(\'easy\')">EASY</button><button class="btn '+(mode==="interval"?"primary":"")+'" onclick="setRunMode3(\'interval\')">INTERVALS</button></div>'+
+  '<div id="runStatus3" class="runstatus" style="margin-top:15px">READY</div><div id="runTime3" class="timer">00:00:00</div>'+
+  '<div class="run-grid"><div class="run-metric"><div class="label">DISTANCE</div><div id="runDist3" class="value">0.00 km</div></div><div class="run-metric"><div class="label">PACE / KM</div><div id="runPace3" class="value">--:--</div></div><div class="run-metric"><div class="label">GPS ACCURACY</div><div id="runAcc3" class="value">--</div></div><div class="run-metric"><div class="label">GPS POINTS</div><div id="runPts3" class="value">'+run3.points.length+'</div></div></div>'+
+  '<div id="route3" class="route" style="margin-top:11px">'+route3()+'</div><div class="run-controls"><button id="runMain3" class="btn primary" onclick="'+(run3.active?(run3.paused?"startRun3()":"pauseRun3()"):"startRun3()")+'">'+(run3.active?(run3.paused?"RESUME RUN":"PAUSE RUN"):"START RUN")+'</button><button class="btn" onclick="'+(run3.active?"finishRun3()":"resetRun3()")+'">'+(run3.active?"FINISH + SAVE":"RESET")+'</button></div>'+
+  '</section><section class="card"><div class="section">Programmed running</div><div class="segment"><b>Monday</b><br>1 mile easy, RPE 5–6.</div><div class="segment"><b>Thursday</b><br>'+escV3(W.thu.run)+'</div><div class="segment"><b>Saturday</b><br>'+escV3(W.sat.run)+'</div></section>'+
+  '<section class="card"><div class="section">Run history</div>'+(S.runs.length?S.runs.slice().reverse().slice(0,8).map(r=>'<div class="segment"><div class="row"><b>'+dateLabel3(r.date)+'</b><span class="pill">'+(r.mode||"run")+'</span></div><div class="muted">'+r.distanceKm.toFixed(2)+' km • '+fmt3(r.seconds)+'</div></div>').join(""):'<div class="empty-state">Your completed runs will appear here.</div>')+'</section>';
+}
+
+function renderHistory3(){
+  const a=[];
+  (S.body||[]).forEach(x=>a.push({t:x.date,h:'<span class="tag">BODY</span><br><b>'+Number(x.weight).toFixed(1)+' lb</b>'}));
+  Object.values(S.food||{}).forEach(x=>a.push({t:x.date+"T23:59:00",h:'<span class="tag">FOOD</span><br><b>'+Number(x.cal||0).toLocaleString()+' kcal</b> • '+Number(x.pro||0)+'g protein • '+Number(x.carb||0)+'g carbs'}));
+  (S.runs||[]).forEach(x=>a.push({t:x.started,h:'<span class="tag">RUN</span><br><b>'+x.distanceKm.toFixed(2)+' km</b> • '+fmt3(x.seconds)+' • '+(x.mode||"run")}));
+  Object.keys(S.logs||{}).forEach(k=>{const l=S.logs[k];if(l?.done){const p=k.split("|");a.push({t:p[0]+"T12:00:00",h:'<span class="tag">WORKOUT</span><br><b>'+escV3(names[p[1]]||p[1])+'</b> • exercise #'+(Number(p[2])+1)+(l.load?' • '+escV3(l.load):"")})}});
+  (S.events||[]).filter(e=>e.type==="day_rollover"||e.type==="day_start"||e.type==="photo").forEach(e=>a.push({t:e.time,h:'<span class="tag">'+e.type.replace("_"," ").toUpperCase()+'</span><br><b>'+dateLabel3((e.data?.date||e.time).slice(0,10))+'</b> • automatically recorded'}));
+  a.sort((x,y)=>new Date(y.t)-new Date(x.t));
+  return '<section class="card hero"><div class="eyebrow">FULL HISTORY</div><div class="title">Your training record, not just a log.</div><p class="muted">Workouts • nutrition • weight • runs • progress photos • automatic day rollovers.</p><div class="kpi-row"><div class="kpi"><b>'+S.body.length+'</b><span>WEIGH-INS</span></div><div class="kpi"><b>'+S.runs.length+'</b><span>RUNS</span></div><div class="kpi"><b>'+Object.keys(S.food).length+'</b><span>FOOD DAYS</span></div></div></section>'+
+  '<section class="card"><div class="section">Timeline</div>'+(a.map(x=>'<div class="history-item"><div class="muted">'+new Date(x.t).toLocaleString()+'</div>'+x.h+'</div>').join("")||'<div class="empty-state">Nothing logged yet. Your history builds automatically as you use FINN MODE.</div>')+'</section>'+
+  '<section class="card"><div class="section">Data safety</div><p class="tip">Your data is stored locally on this device. Export a backup regularly. Progress photos are compressed before storage, but device storage is still finite.</p><button class="btn" onclick="exportV3()">EXPORT FULL BACKUP</button></section>';
+}
+function exportV3(){const b=new Blob([JSON.stringify(S,null,2)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(b);a.download="finn-mode-backup-"+localDateV3()+".json";document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),1000);toast3("Backup exported")}
+
+function renderProgram3(){
+  let h='<section class="card hero"><div class="eyebrow">PROGRAM</div><div class="title">Week '+S.week+' / 12</div><p class="muted">Explosive work → strength → hypertrophy/core. RPE based. Wednesday and Sunday are fixed rest days.</p><div class="row"><button class="btn" onclick="changeWeek(-1)">←</button><span class="pill">WEEK '+S.week+'</span><button class="btn" onclick="changeWeek(1)">→</button></div></section>';
+  days.forEach(k=>{if(k==="wed"||k==="sun")h+='<section class="card"><div class="row"><b>'+names[k]+'</b><span class="pill">REST</span></div></section>';else h+='<section class="card"><div class="row"><div><b>'+names[k]+'</b><div class="muted">'+escV3(wk(k).name)+'</div></div><button class="btn" onclick="editDay(\''+k+'\')">EDIT</button></div></section>'});
+  return h+'<section class="card"><div class="section">Exercise library</div><p class="tip">Photo and video demonstrations for every programmed movement.</p><button class="btn primary" onclick="showLibraryV2()">OPEN FULL EXERCISE LIBRARY</button></section>';
+}
+
+function renderToday3(){
+  let k=todayDay3();if(k==="wed"||k==="sun")return '<section class="card hero"><div class="eyebrow">NON-NEGOTIABLE REST</div><div class="title">'+names[k]+' — REST</div><p class="muted">Recover, eat, hydrate, sleep. The app will automatically record the new day when you return.</p></section>';
+  let w=wk(k),h='<section class="card hero"><div class="eyebrow">'+names[k]+' • WEEK '+S.week+'</div><div class="title">'+escV3(w.name)+'</div><p class="muted">'+escV3(w.run||"60-minute maximum lifting session")+'</p></section><section class="card"><div class="section">Warm-up</div>'+w.warm.map(x=>'<div class="tip">• '+escV3(x)+'</div>').join("")+'</section>';
+  if(w.ex.length){h+='<section class="card"><div class="section">Workout</div>';w.ex.forEach((e,i)=>{const l=S.logs[logKeyV2(localDateV3(),k,i)]||{};h+='<div class="exercise"><div class="row"><b>'+String(i+1)+'. '+escV3(e.name)+'</b><span class="pill">'+escV3(e.type)+'</span></div><div class="tip">'+escV3(e.sets)+' × '+escV3(e.reps)+' • target RPE '+escV3(e.rpe)+'<br>'+escV3(e.note)+'</div><div class="inputs"><label>LOAD<input data-i="'+i+'" data-f="load" value="'+escV3(l.load||"")+'"></label><label>REPS<input data-i="'+i+'" data-f="reps" value="'+escV3(l.reps||"")+'"></label><label>RPE<input data-i="'+i+'" data-f="rpe" value="'+escV3(l.rpe||"")+'"></label></div><button class="btn complete '+(l.done?"done":"")+'" data-done="'+i+'">'+(l.done?"✓ COMPLETED":"MARK COMPLETE")+'</button></div>'});h+='</section>'}
+  return h+'<button class="btn primary" onclick="editDay(\''+k+'\')">MODIFY TODAY</button>';
+}
+
+function renderV3(){
+  rollover3();
+  document.getElementById("week").textContent="WEEK "+S.week;
+  const t=location.hash.slice(1)||"today";
+  document.querySelectorAll("nav button").forEach(b=>b.classList.toggle("active",b.dataset.tab===t));
+  document.getElementById("view").innerHTML=t==="run"?renderRun3():t==="food"?renderFood3():t==="history"?renderHistory3():t==="body"?renderBody3():t==="program"?renderProgram3():renderToday3();
+  if(t==="run"){updateRun3();const pts=document.getElementById("runPts3");if(pts)pts.textContent=run3.points.length}
+  document.querySelectorAll("[data-f]").forEach(x=>x.onchange=()=>{const key=logKeyV2(localDateV3(),todayDay3(),x.dataset.i);S.logs[key]=S.logs[key]||{};S.logs[key][x.dataset.f]=x.value;save3()});
+  document.querySelectorAll("[data-done]").forEach(x=>x.onclick=()=>{const key=logKeyV2(localDateV3(),todayDay3(),x.dataset.done);S.logs[key]=S.logs[key]||{};S.logs[key].done=!S.logs[key].done;if(S.logs[key].done)S.events.push({time:new Date().toISOString(),type:"workout",data:{day:names[todayDay3()],exercise:Number(x.dataset.done)+1,date:localDateV3()}});save3();renderV3()});
+}
+document.querySelectorAll("nav button").forEach(b=>b.onclick=()=>{location.hash=b.dataset.tab;renderV3()});
+window.removeEventListener("hashchange",renderV2);
+window.addEventListener("hashchange",renderV3);
+renderV3();
+
 if("serviceWorker"in navigator)navigator.serviceWorker.register("sw.js");
 </script></body></html>
