@@ -1,0 +1,1 @@
+const C="finn-mode-v1";self.addEventListener("install",e=>e.waitUntil(caches.open(C).then(x=>x.addAll(["./","./index.html","./manifest.json"]))));self.addEventListener("fetch",e=>e.respondWith(caches.match(e.request).then(r=>r||fetch(e.request).then(r=>{let c=r.clone();caches.open(C).then(x=>x.put(e.request,c));return r}).catch(()=>caches.match("./index.html")))));
